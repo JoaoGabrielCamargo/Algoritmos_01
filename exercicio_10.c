@@ -1,0 +1,149 @@
+/* 
+O codigo tem a funcao de fornecer um exemplo de um cardapio, com 5 opcoes de escolha e somar seus valores.
+O codigo utiliza uma biblioteca padrao - <stdio.h> e uma estrutura padrao em C.
+Sao utilizadas 5 variaveis, sendo, uma do tipo inteiro, uma do tipo float e tres do tipo
+char.
+Logo no comeco do codigo e atribuido valor 0 a variavel "calculo".
+Entao o codigo realiza mensagens para o usuario, para realizar ou nao a opcao de mostrar o cardapio.
+Caso o usuario digite "c" o codigo ira perguntar sobre o cardapio.
+Nessa segunda parte de condicionais, caso o usuario deseje ver o cardapio, ele usara a tecla s, entao as opcoes
+irao aparecer.
+Cada opcao possui um numero, informado antes do nome das opcoes.
+Se o usuario escolher alguma opcao e apertar "enter" o algoritmo ira retornar com outra mensagem,
+informando se ele deseja mais alguma coisa.
+Caso ele digite "nao" o programa ira encerrar, caso digite ira entrar numa serie de condicionais, afim de continuar a compra.
+A estrutura condicional ira repetir o processo atraves de um "while" que mantem ate que condicao de enceramento se cumpra.
+Assim que a condicao de encerramento se cumprir, o programa ira retornar o valor da compra.
+O valor da variavel calculo e aumentado toda vez que algo e selecionado.
+*/
+
+#include <stdio.h>
+int main(){
+	
+	int numero;
+	char enter, validacao, reiniciar;
+	float calculo;
+	
+	calculo = 0.00;
+	
+	printf("Bem vindo ao restaurante Prato Bom\n");
+	printf("Pressione c para continuar\n");
+	scanf(" %c", &enter);
+	
+	if(enter == 'c'){
+		printf("Gostaria de conferir nossos pratos? s ou n\n");
+		scanf(" %c", &validacao);
+		
+		if(validacao == 's'){
+			printf("1.Prato Feito\n");
+			printf("2.Bife Cavalo\n");
+			printf("3.Virada Paulista\n");
+			printf("4.Coca-Cola 2L\n");
+			printf("5.Fanta 2L\n");
+			
+			printf("Digite o numero do prato que voce deseja\n");
+			if(scanf("%d", &numero) != 1){
+				printf("Voce nao digitou o numero do prato\n");
+				return (0);
+			}
+			if((numero < 1) || (numero >5)){
+				printf("Voce digitou um numero invalido, por favor tente novamente\n");
+				return(0);
+			}
+			if(numero == 1){
+				printf("Prato Feito\nR$ 25,00\n");
+				printf("Gostaria de pedir mais alguma coisa?\ns ou n\n");
+				scanf(" %c", &reiniciar);
+				calculo = calculo + 25.00;
+			}
+			if(numero == 2){
+				printf("Bife Cavalo\nR$ 30,00\n");
+				printf("Gostaria de pedir mais alguma coisa?\ns ou n\n");
+				scanf(" %c", &reiniciar);
+				calculo = calculo + 30.00;
+			}
+			if(numero == 3){
+				printf("Virada Paulista\nR$ 30,00\n");
+				printf("Gostaria de pedir mais alguma coisa?\ns ou n\n");
+				scanf(" %c", &reiniciar);
+				calculo = calculo + 30.00;
+			}
+			if(numero == 4){
+				printf("Coca-Cola\n R$ 10,00\n");
+				printf("Gostaria de pedir mais alguma coisa?\ns ou n\n");
+				scanf(" %c", &reiniciar);
+				calculo = calculo + 10.00;
+			}
+			if(numero == 5){
+				printf("Fanta\n R$ 7,50\n");
+				printf("Gostaria de pedir mais alguma coisa?\ns ou n\n");
+				scanf(" %c", &reiniciar);
+				calculo = calculo + 7.50;
+			}
+            if(reiniciar != 's'){
+					printf("Aguarde em quanto processamos o valor do seu pedido...\n");
+					printf("O valor total do seu pedido e R$%.2f\n", calculo);
+					return(0);
+			}
+			while(reiniciar == 's'){
+				printf("Digite o numero do prato que voce deseja\n");
+				if(scanf("%d", &numero) != 1){
+					printf("Voce nao digitou o numero do prato\n");
+					return (0);
+				}
+				if((numero < 1) || (numero > 5)){
+					printf("Voce digitou um numero invalido, por favor tente novamente\n");
+					continue; 
+				}
+				if(numero == 1){
+				printf("Prato Feito\nR$ 25,00\n");
+				printf("Gostaria de pedir mais alguma coisa?\ns ou n\n");
+				scanf(" %c", &reiniciar);
+				calculo = calculo + 25.00;
+				}
+				if(numero == 2){
+				printf("Bife Cavalo\nR$ 30,00\n");
+				printf("Gostaria de pedir mais alguma coisa?\ns ou n\n");
+				scanf(" %c", &reiniciar);
+				calculo = calculo + 30.00;
+				}
+				if(numero == 3){
+				printf("Virada Paulista\nR$ 30,00\n");
+				printf("Gostaria de pedir mais alguma coisa?\ns ou n\n");
+				scanf(" %c", &reiniciar);
+				calculo = calculo + 30.00;
+				}
+				if(numero == 4){
+				printf("Coca-Cola\n R$ 10,00\n");
+				printf("Gostaria de pedir mais alguma coisa?\ns ou n\n");
+				scanf(" %c", &reiniciar);
+				calculo = calculo + 10.00;
+				}
+				if(numero == 5){
+				printf("Fanta\n R$ 7,50\n");
+				printf("Gostaria de pedir mais alguma coisa?\ns ou n\n");
+				scanf(" %c", &reiniciar);
+				calculo = calculo + 7.50;
+				}
+				if(reiniciar != 's'){
+					printf("Aguarde em quanto processamos o valor do seu pedido...\n");
+					printf("O valor total do seu pedido e R$%.2f\n", calculo);
+					return(0);
+				}
+			}
+		return  (0);
+		}
+		if(validacao == 'n'){
+			printf("Obrigado pela visita, volte sempre");
+			return (0);
+		}
+		if((validacao != 'n') || (validacao != 's')){
+			printf("parece que houve um erro");
+			return (0);
+		}
+	}else{
+		printf("Erro no sistema");
+		return (0);
+	}
+}
+    

@@ -5,6 +5,9 @@ int main(){
   int contador_01, contador_02;
   int verificar_X, verificar_Y;
   int valor_temporario, maior_numero;
+
+  valor_temporario = 0;
+  maior_numero = 0;
   
     printf("numeros a compor a matriz\n");
     scanf("%d %d", &verificar_X, &verificar_Y);

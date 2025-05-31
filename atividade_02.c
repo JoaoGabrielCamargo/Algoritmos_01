@@ -24,9 +24,9 @@ int main(){
      for(contador_02 = 0; contador_02 < verificar_Y; contador_02++){
       soma += numeros[contador_01][contador_02];
      }
-    media = ((float)(soma / (verificar_X * verificar_Y)));
     }
- printf("A media dos elementos eh: %d\n", media);
+ media = (float) soma / (verificar_X * verificar_Y);
+ printf("A media dos elementos eh: %.2f\n", media);
  return(0);
 }
  
